@@ -1,5 +1,5 @@
 # Assignment Images
 
-![(assets/Screenshot(1672).png)]
+![Screemshot](assets/Screenshot(1672).png)
 
 
