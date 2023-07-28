@@ -1,11 +1,12 @@
-import { View, Text, SafeAreaView,StatusBar, StyleSheet,Image, TouchableWithoutFeedback, TextInput, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView,StatusBar, StyleSheet,Image, TouchableWithoutFeedback, TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import {useNavigation} from '@react-navigation/native';
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 import  sanityClient  from '../sanity';
+import OrderScreen from './OrderScreen';
 import {
-  UserIcon,
+  ShoppingBagIcon,
   MagnifyingGlassIcon,
   ChevronDownIcon,
   AdjustmentsHorizontalIcon
@@ -52,7 +53,15 @@ const HomeScreen = () => {
             <ChevronDownIcon  size={15} color="#00CCBB" />
         </Text>
         </View>
-        <UserIcon size={35} color='#00CCBB'/>
+        <TouchableOpacity className='flex flex-row items-center space-x-1 '
+        onPress={() =>{
+          navigation.navigate('Order',{
+          });
+       }}
+        >
+        <Text className='text-md text-gray-800 font-semibold'>My Order</Text>
+        <ShoppingBagIcon size={20} className='' color="#00CCBB"/>
+        </TouchableOpacity>
         </View>
 
        {/* search */}

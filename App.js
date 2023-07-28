@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from './screens/HomeScreen';
 import RestaurantScreen from './screens/RestaurantScreen'
 import SeeAllScreen from './screens/SeeAllScreen';
+import OrderScreen from './screens/OrderScreen';
 
 import { store } from './store';
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ export default function App() {
       <TailwindProvider>
         <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Order" component={OrderScreen} options={{ presentation:"modal" , headerShown: false }} />
         <Stack.Screen name="SeeAll" component={SeeAllScreen} options={{ presentation:"modal" , headerShown: false }} />
         <Stack.Screen name="Restaurant" component={RestaurantScreen} />
         </Stack.Navigator>
