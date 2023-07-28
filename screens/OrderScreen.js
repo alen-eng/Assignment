@@ -83,7 +83,8 @@ const OrderScreen = () => {
      if(orderList[id-1]!=undefined) orderList[id-1].status = 'Completed';
     }
 const Remove = (id) => {
- // if(orderList[id]!=undefined) orderList.splice(id);
+  if(orderList[id-1]!=undefined) {orderList.splice(id-1,1); 
+  console.log(orderList)}
 }
     const FormSubmit = () => {
       orderList.push({
@@ -113,7 +114,7 @@ const Remove = (id) => {
               <Text className='text-lg text-gray-800 font-bold' >Phone</Text>
               <TextInput className='border-2 border-gray-400 rounded-lg px-4 py-2 required' type='number' placeholder='Mobile' onChangeText={(text)=>{setPhone(text);}} />
               <Text className='text-lg text-gray-800 font-bold' >Table</Text>
-              <TextInput className='border-2 border-gray-400 rounded-lg px-4 py-2 required' type='text' placeholder='Eg: T1' onChangeText={(text)=>{setTable(text)}} />
+              <TextInput className='border-2 border-gray-400 rounded-lg px-4 py-2 required' type='text' placeholder='Eg: 1' onChangeText={(text)=>{setTable(text)}} />
               <Text className='text-lg text-gray-800 font-bold' >Restaurant Name</Text>
               <TextInput className='border-2 border-gray-400 rounded-lg px-4 py-2 required' type='text' placeholder='Restaurant' onChangeText={(text)=>{setRestaurant(text)}} />
               <Text className='text-lg text-gray-800 font-bold' >Dishes</Text>
@@ -141,8 +142,8 @@ const Remove = (id) => {
                         <Text className={item.status=='Active' ?'text-lg text-gray-800 font-bold':'text-lg font-bold text-gray-400' } >{item.name}</Text>
                         <Text className={item.status=='Active' ?'text-lg text-gray-800 font-bold':'font-bold text-lg text-gray-400' } >{item.restaurant}</Text>
                         <Text className={item.status=='Active' ?' text-lg text-gray-800 font-bold':'font-bold text-lg text-gray-400' } >T{item.table}</Text>
-                        <TouchableOpacity >
-                        <Text onPress={()=>{Remove(item.id);}} className={item.status=='Active' ?'bg-red-600 text-white px-2 py-1 rounded-full':''}>{item.status =='Active'?'X':''}</Text>
+                        <TouchableOpacity onPress={()=>{Remove(item.id);}}>
+                        <Text  className={item.status=='Active' ?'bg-red-600 text-white px-2 py-1 rounded-full':''}>{item.status =='Active'?'X':''}</Text>
                         </TouchableOpacity>
                     </View>
                     
